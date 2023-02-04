@@ -3,10 +3,10 @@
 ## Table of Contents
 
 * [Instructions](#instructions)
-* [Description](#Description)
-* [Languages](#Languages used)
-* [Link](#Link website)
-* [ScreenShoot](#Screen shoot)
+* [Description](#description)
+* [Languages](#languages)
+* [Link](#link)
+
 
 ## Instructions
 The second project of the Nano Degree Program in Front End Web Developer at UDACITY in cooperation with the Suadi Digital Academy with the support of the Ministry of Communications and Information Technology (MCIT).
@@ -14,11 +14,14 @@ The second project of the Nano Degree Program in Front End Web Developer at UDAC
 ## Description 
 A Landing Page is dynamically built navigation as a menu between the sections. When clicking an item from the navigation menu, the link scroll to the appropriate section.
 
-## Languages used:
+## Languages:
 * HTML
 * CSS
 * JAVASCRIPT
 
-## Link website
+## Link
+### Link Website:
+### Screen Shoot:
+![Landing Page](https://user-images.githubusercontent.com/114902383/216767805-f2e1f248-2115-44ab-82eb-336a4e35f09a.PNG)
 
-## Screen shoot
+
