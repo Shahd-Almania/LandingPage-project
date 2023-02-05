@@ -75,16 +75,17 @@ section {
     margin: 0;
     text-align: center;   
 }
-/* 
+
 .navbar__menu li {
-    display: inline-block;
+    display: inline-flex;
     padding-left: 2%;
 }
-*/
+
 .navbar__menu .menu__link {
-    display: block;
+    display: inline-block;
     /* padding: 1em; */
     /* font-weight: bold; */
+
     text-decoration: none;
     color: #000;
 } 

@@ -25,12 +25,15 @@ createSection();
 
  /////////////////////////////////////////////////////////////////
 
+ ///////////
+
  // ** section is being viewed while scrolling through the page
  // *** The element location relative to the (viewport using .getBoundingClientRect() built-in function.
  const viewport  = (section) => {
   let sectionSc = (section.getBoundingClientRect());
   return(sectionSc.top >= 0);
  }
+
 
 const activeClass = () => {
   sections.forEach(section => {
@@ -39,11 +42,14 @@ const activeClass = () => {
       if(!section.classList.contains('your-active-class'));
       // ***adding the active class
       section.classList.add('your-active-class');
+      section.style.cssText = "background-color:rgba(0,13,60,1);";
     }
     else
     {
       // ***remove the active class
       section.classList.remove('your-active-class');
+      section.style.cssText = "background-color:linear-gradient(0deg,  100%)";
+      
     }
 });
   }
