@@ -1,63 +1,93 @@
 
- // * Define Global Variables
-const sections = document.querySelectorAll('section');
+// Start Global Variables
+const navBar = document.querySelector('.navbar__menu');
 const ul = document.getElementById('navbar__list');
- // * End Global Variables
+const sections = document.querySelectorAll('section');
+// * End Global Variables
 
 
- /////////////////////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////
 
- // * Start Helper Functions
+ // * Start build the nav
 
  // ** function for create a section and add content inside it
-const createSection = () => {
 
-  let counter = '';
-  sections.forEach(section => {
-      const sectionID = section.id;
-      const sectionName = section.dataset.nav;
-      counter += `<li><a class="menu__link" href="#${sectionID}">${sectionName}</a></li>`;
+const createSection = () =>{
+    sections.forEach(section => {
+        const navButton = document.createElement('li');
+        navButton.insertAdjacentHTML("afterbegin",`<a href="#${section.id}" class="menu__link">${section.dataset.nav}</a>`);
+        ul.appendChild(navButton);
+        scrollBehavior(navButton, section);
+    });
+    
+    navBar.appendChild(ul);
+}
 
-  });
-  ul.innerHTML = counter;
-};
+//Build Nav Function
 createSection();
 
- /////////////////////////////////////////////////////////////////
 
- ///////////
+// Start of Scroll to anchor ID using scrollTO event
 
- // ** section is being viewed while scrolling through the page
- // *** The element location relative to the (viewport using .getBoundingClientRect() built-in function.
- const viewport  = (section) => {
-  let sectionSc = (section.getBoundingClientRect());
-  return(sectionSc.top >= 0);
- }
+function scrollBehavior(navButton, section){
+    navButton.addEventListener('click', function(event){
+        event.preventDefault();
+        window.scrollTo({
+            top: section.offsetTop,
+            behavior:"smooth"
+        });
+    });
+}
 
+// Start of Set the Section class 'active' when it near to the top of viewport
 
-const activeClass = () => {
-  sections.forEach(section => {
- 
-    if(viewport(section)){
-      if(!section.classList.contains('your-active-class'));
-      // ***adding the active class
-      section.classList.add('your-active-class');
-      section.style.cssText = "background-color:rgba(0,13,60,1);";
-    }
-    else
-    {
-      // ***remove the active class
-      section.classList.remove('your-active-class');
-      section.style.cssText = "background-color:linear-gradient(0deg,  100%)";
-      
-    }
-});
-  }
+const activeSection = () =>{
+    const navActive = document.querySelectorAll(".menu__link")
+    sections.forEach((section, i)=>{
+         
+        const sectionBond = section.getBoundingClientRect();
+        //Check if the section is in viewport or not 
+        if (sectionBond.top <= 380 && sectionBond.bottom >= 350){
+           //adding the active class
+            section.classList.add("your-active-class");
+            section.style.cssText = "background-color:rgba(0,13,60,1);";
+            navActive[i].classList.add("active_button");
+            
+        } else{
+            //remove the active class
+            section.classList.remove("your-active-class");
+            section.style.cssText = "background-color:linear-gradient(0deg,  100%)"; 
+            navActive[i].classList.remove("active_button");
+            
+        }
+    })
+}
+
+//Start of the Scroll Event to execute the functions of activeSection and toggleNavBar 
+window.addEventListener('scroll',(event)=>{
+    activeSection();  
+})
+
+// const viewport  = (section) => {
+//     let sectionSc = (section.getBoundingClientRect());
+//     return(sectionSc.top >= 0);
+//    }
   
-  document.addEventListener('scroll',activeClass);
-
-
-
- // * End Helper Functions
-
-
+  
+//   const activeClass = () => {
+//     sections.forEach(section => {
+    
+//       if(viewport(section)){
+//         if(!section.classList.contains('your-active-class'));
+      
+//       }
+//       else
+//       {
+//         section.style.cssText = "background-color:linear-gradient(0deg,  100%)"; 
+//       }
+//   });
+//     }
+    
+//     document.addEventListener('scroll',activeClass);
+  
+  
