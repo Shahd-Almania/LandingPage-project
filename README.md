@@ -21,7 +21,5 @@ A Landing Page is dynamically built navigation as a menu between the sections. W
 
 ## Link
 
-### Screen Shoot:
-![Landing Page](https://user-images.githubusercontent.com/114902383/216767805-f2e1f248-2115-44ab-82eb-336a4e35f09a.PNG)
 
 
