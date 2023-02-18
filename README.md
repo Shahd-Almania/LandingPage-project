@@ -20,6 +20,8 @@ A Landing Page is dynamically built navigation as a menu between the sections. W
 * JAVASCRIPT
 
 ## Link
+Website Link: 
+https://landingpage-shahad-almania.netlify.app/
 
 
 
